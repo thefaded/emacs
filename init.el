@@ -8,7 +8,6 @@
 (add-to-list 'load-path "~/.emacs.d/DaniilPackages/themes")
 (add-to-list 'load-path "~/.emacs.d/DaniilPackages/yasnippet")
 (add-to-list 'load-path "~/.emacs.d/DaniilPackages/emmet-mode")
-(add-to-list 'load-path "~/.emacs.d/DaniilPackages/markdown")
 (add-to-list 'custom-theme-load-path "~/.emacs.d/DaniilPackages/themes")
 
 ;; Disable TABS
@@ -16,7 +15,7 @@
 (setq css-indent-offset 2)
 
 ;; Sessions destroy
-(desktop-save-mode nil)
+(desktop-save-mode 0)
 
 ;; Shortest variant for yes/no
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -35,12 +34,16 @@
 (scroll-bar-mode -1)
 
 ;; Font
-(set-default-font "SF Mono-13")
+(set-default-font "SF Mono-14")
 
 ;; Disable lines
 (global-linum-mode -1)
 
 ;; === EXTENSIONS ===
+
+;; Interactive buffers mode
+(require 'ido)
+(ido-mode t)
 
 ;; Emmet mode
 (require 'emmet-mode)
@@ -65,26 +68,6 @@
 (setq bs-configurations '(("files" "^\\*scratch*\\*" nil nil bs-visits-non-file bs-sort-buffer-interns-are-last)))
 (global-set-key (kbd "<f2>") 'bs-show)
 
-;; Makrdown mode
-(autoload 'markdown-mode "markdown-mode"
-   "Major mode for editing Markdown files" t)
-(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-
-(autoload 'gfm-mode "markdown-mode"
-   "Major mode for editing GitHub Flavored Markdown files" t)
-(add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -99,6 +82,21 @@
 
 
 ;; === ARCHIVE ===
+
+;; Markdown mode
+;; Can't use this mode on macOS, cos everytime I'm opening MD file
+;; it's loading custom font, lol?? It takes about 7-10 sec, so fuck it
+
+;;(add-to-list 'load-path "~/.emacs.d/DaniilPackages/markdown")
+
+;;(autoload 'markdown-mode "markdown-mode"
+;;   "Major mode for editing Markdown files" t)
+;;(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+;;(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
+;;(autoload 'gfm-mode "markdown-mode"
+;;   "Major mode for editing GitHub Flavored Markdown files" t)
+;;(add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
 
 ;; === SETTINGS ===
 
